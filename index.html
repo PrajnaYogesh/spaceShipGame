@@ -4,16 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SpaceShipBattleGame</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="outer-container">
-      <div class="left-container">
+      <div class="top-container">
+        <div class="left-container">
+          <p class="type">Captain</p>
+          <div class="img-container">
+            <img class="img-style" id="captain-img " src="https://i.giphy.com/gEwrCXUgVijde.gif" alt="captain-img" />
+          </div>
+          <div class="fire-container">
+            <p id="fire" class="fire-btn">Fire</p>
 
+          </div>
+          <div  id="captain-bottom-row" class="bottom-row">
+            <p>Hull:<span> </span>  </p>
+            <p>FirePower: <span> </span> </p>
+            <p>Accuracy : <span> </span> </p>
+          </div>
+        </div>
+
+        <div class="right-container">
+           
+                <p class="type">Alien: <span> 1</span></p>
+                <div class="img-container ">
+                    <img class="img-style" id="alien-img" src="https://tse2.mm.bing.net/th?id=OIP.wDKmYdyYLJ-0XIZ_4k6NtgHaHa&pid=15.1" alt="alien-img" />
+                  </div>
+                  <div class="fire-container">
+                    <p class="aliens-left">Aliens Left : <span> </span></p>
+        
+                  </div>
+                  <div  id="alien-bottom-row" class="bottom-row">
+                    <p>Hull:<span> </span>  </p>
+                    <p>FirePower: <span> </span> </p>
+                    <p>Accuracy : <span> </span> </p>
+                  </div>
+            </div>
+          
+        </div>
+        <div class="bottom-container">
+            <div class="captain-turn">Captain's Turn</div>
+            <div class="start">Start Game</div>
+            <div class="alien-turn">Alien's Turn</div>
+            
+                  </div>
       </div>
 
-      <div class="right-container"></div>
-
-      <div class="bottom-container"></div>
+      
     </div>
     <script src="app.js"></script>
   </body>

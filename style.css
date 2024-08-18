@@ -1,6 +1,130 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
+body {
+  background-color: black;
+  background-image: url("https://t4.ftcdn.net/jpg/00/59/95/89/360_F_59958917_1SvEPqvKnrGr68THJ35hqQUiHwQ6WhCN.jpg");
+  background-size: cover; /* <------ */
+  background-repeat: no-repeat;
+}
+
+p {
+  color: white;
+}
+
+.outer-container {
+  border: 1px solid black;
+  margin: auto;
+  height: 100vh;
+  width: 70vw;
+}
+
+.top-container {
+  border: 1px solid green;
+  height: 80%;
+  display: flex;
+}
+
+.left-container {
+  border: 1px solid rgb(22, 193, 96);
+  width: 50%;
+  height: 100%;
+}
+
+.type {
+  border: 1px solid black;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.img-container {
+  border: 1px solid black;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://t4.ftcdn.net/jpg/00/59/95/89/360_F_59958917_1SvEPqvKnrGr68THJ35hqQUiHwQ6WhCN.jpg");
+  background-size: cover; /* <------ */
+  background-repeat: no-repeat;
+}
+
+.img-style {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.fire-container {
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+}
+
+.fire-btn {
+    width: 120px;
+    height: 35px;
+    display: flex;
+align-items: center;
+justify-content: center;
+  border: 1px solid rgb(235, 24, 24);
+ 
+  cursor: pointer;
+}
+
+.aliens-left {
+  width: 120px;
+  text-align: center;
+}
+.bottom-row {
+  height: 10%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid white;
+}
+
+.bottom-row p {
+  border: 1px solid white;
+  width: 120px;
+    height: 35px;
+    display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.right-container {
+  border: 1px solid blue;
+  width: 50%;
+  height: 100%;
+}
+
+.bottom-container {
+  border: 1px solid red;
+  height: 20%;
+display: flex;
+align-items: center;
+justify-content: space-around;
+}
+
+.captain-turn, .start ,.alien-turn{
+    border: 1px solid white;
+    width: 120px;
+    height: 35px;
+    display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.start{
+    cursor: pointer;
+}

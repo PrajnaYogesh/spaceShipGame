@@ -1,30 +1,57 @@
-// class Player{
-//     constructor(name,hull,firePower,accuracy){
-//         this.name = name;
-//          this.hull=hull;
-//         this.firePower=firePower;
-//         this.accuracy=accuracy;
-//     }
-//     }
+class Player{
+    constructor(name,hull,firePower,accuracy){
+        this.name = name;
+         this.hull=hull;
+        this.firePower=firePower;
+        this.accuracy=accuracy;
+    }
+    }
 
-//     let ussAssembly = new Player("ussAssembly",20,5,0.7);
-//     console.log(ussAssembly);
+    let captain = new Player("captain",20,5,0.7);
+    console.log(captain);
 
-//     let alienShip=[];
+    let alienShip=[];
 
-//     for(let i=0;i<6;i++){
-//         let alienName = "alien"+i;
-//        let alienHull = Math.floor(Math.random() * (6 - 3) + 3)
-//        let alienFirePower = Math.floor(Math.random() * (4 - 2) + 2)
-//        let alienAccuracy = Number((Math.random() * (0.8 - 0.6) + 0.6).toFixed(1))
-//           alienShip[i]= new Player(alienName,alienHull,alienFirePower,alienAccuracy);
-//           alienShip.push(alienShip[i]);
-//            }
+    for(let i=0;i<6;i++){
+        let alienName = "alien"+i;
+       let alienHull = Math.floor(Math.random() * (6 - 3) + 3)
+       let alienFirePower = Math.floor(Math.random() * (4 - 2) + 2)
+       let alienAccuracy = Number((Math.random() * (0.8 - 0.6) + 0.6).toFixed(1))
+          alienShip[i]= new Player(alienName,alienHull,alienFirePower,alienAccuracy);
+          alienShip.push(alienShip[i]);
+           }
     
-//     console.log(alienShip);
-//     console.log("******************");
+    console.log(alienShip);
+    console.log("******************");
     
+let fireBtn = document.getElementById('fire');
+
+
+
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    
               
 //     let currentAlien = alienShip.pop()
