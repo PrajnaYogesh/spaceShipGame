@@ -116,7 +116,7 @@ align-items: center;
 justify-content: space-around;
 }
 
-.captain-turn, .start ,.alien-turn{
+.captain-turn, .start ,.alien-turn ,.retreat{
     border: 1px solid white;
     width: 120px;
     height: 35px;
@@ -125,6 +125,10 @@ align-items: center;
 justify-content: center;
 }
 
-.start{
+.start, .retreat{
     cursor: pointer;
+}
+
+.retreat{
+    display: none;
 }

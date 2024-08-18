@@ -7,6 +7,8 @@ class Player{
     }
     }
 
+  
+
     let captain = new Player("captain",20,5,0.7);
     console.log(captain);
 
@@ -24,7 +26,99 @@ class Player{
     console.log(alienShip);
     console.log("******************");
     
+
+let start = document.querySelector('.start') 
+let retreat =  document.querySelector('.retreat')   
 let fireBtn = document.getElementById('fire');
+let currentAlien = alienShip.pop();
+let gameStart;
+console.log(currentAlien);
+
+function calculateAccuracy(){
+    let random = Math.random();
+    console.log(random);
+    
+    if (random > currentAlien.accuracy ){
+        console.log('you hit the target,reduce opposition\'s hull')
+        return true;
+    }else{
+        console.log('you missed the alien')
+        return false;
+    }
+    
+    }
+
+
+
+function resetGame(){
+    console.log("game reset");
+  let retreatAns= prompt('do you want to retreat?');
+ if(retreatAns){
+    console.log("reset to start game");
+   } 
+   }
+
+   function alienFires(){
+    console.log('alien is attacking captain');
+    let ans = calculateAccuracy();
+    if(ans){
+console.log('You missed the traget');
+
+    }else{
+        captain.hull-=currentAlien.firePower;
+        console.log(captain);
+        
+    }
+    
+   }
+
+function isDefeated(){
+    if(currentAlien.hull<=0){
+        currentAlien=alienShip.pop();
+        console.log(currentAlien);
+        
+        if(!currentAlien){
+            console.log('Captain Won');
+                  }
+        }else{
+        alienFires();
+    }
+}
+
+
+
+
+function captainFires(){
+    
+    console.log('inside captain function')
+      let answer =  calculateAccuracy();
+if(answer){
+    currentAlien.hull-=captain.firePower; 
+    isDefeated();
+}else{
+    alienFires();
+}
+}
+
+
+
+
+
+fireBtn.addEventListener('click',captainFires)
+
+start.addEventListener('click', ()=>{
+    console.log('start clicked');
+        gameStart=true;
+
+    
+})
+
+retreat.addEventListener('click',()=>{
+    console.log('retreat clicked');
+    gameStart=false;
+    resetGame();
+})
+
 
 
 
