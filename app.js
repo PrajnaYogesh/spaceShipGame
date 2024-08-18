@@ -11,7 +11,6 @@ class Player{
 
     let captain = new Player("captain",20,5,0.7);
     console.log(captain);
-
     let alienShip=[];
 
     for(let i=0;i<6;i++){
@@ -30,9 +29,14 @@ class Player{
 let start = document.querySelector('.start') 
 let retreat =  document.querySelector('.retreat')   
 let fireBtn = document.getElementById('fire');
-let currentAlien = alienShip.pop();
+let currentAlien = alienShip.shift();
 let gameStart;
+
 console.log(currentAlien);
+
+let alienNo=1;
+let alienNumber = document.querySelector('.alienNo')
+
 
 function calculateAccuracy(){
     let random = Math.random();
@@ -74,7 +78,9 @@ console.log('You missed the traget');
 
 function isDefeated(){
     if(currentAlien.hull<=0){
-        currentAlien=alienShip.pop();
+        currentAlien=alienShip.shift();
+        alienNo+=1
+alienNumber.innerHTML=alienNo;
         console.log(currentAlien);
         
         if(!currentAlien){
@@ -147,71 +153,4 @@ retreat.addEventListener('click',()=>{
 
 
    
-              
-//     let currentAlien = alienShip.pop()
-//     console.log(currentAlien);
-   
-
-//     function  ussAssemblysTurn(){
-//         if(ussAssembly.accuracy<alienShip.accuracy){
-//             console.log('uss ship has been hit');
-//             if(ussAssembly.hull<=0){
-//                 console.log('aliens won')
-//             }else{
-//                 currentAlien.hull = currentAlien.hull-ussAssembly.firePower;
-//                 aliensTurn();
-//             }
-//         } else{
-//             currentAlien.hull = currentAlien.hull-ussAssembly.firePower;
-//             aliensTurn();
-//         }
-//     }
-
-      
-
-
-
-// function aliensTurn(){
-// // if(alienShip.accuracy<ussAssembly.accuracy){
-//     if(Math.random() > alienShip.accuracy){
-//     console.log('Alienship has been hit.. reduce hull').
-//     currentAlien.hull = currentAlien.hull-ussAssembly.firePower;
-//     if(currentAlien.hull<=0){
-//         console.log('current alien is destroyed!,bring a new Alien');
-//         // prompt('you have an option to retreat,if yes put a retreat button with event listener to end the fight')
-//         currentAlien = alienShip.pop();
-//         if(currentAlien){
-//             ussAssembly.hull = ussAssembly.hull - currentAlien.firePower;
-//             ussAssemblysTurn();
-//         } else{
-//             console.log("USS ship won");
-//                     }
-        
-//            }else{
-//             ussAssembly.hull = ussAssembly.hull - currentAlien.firePower;
-//             ussAssemblysTurn();
-//            }
-//         }
-
-// else
-// {
-// console.log('You missed the shot')
-// ussAssembly.hull = ussAssembly.hull - currentAlien.firePower;
-// ussAssemblysTurn();
-// }
-// }
-
-
-   
-
-
-//     function startGame(){
-        
-//        aliensTurn();
-      
-//     }
-
-//         startGame();
-
-       
-
+ 
