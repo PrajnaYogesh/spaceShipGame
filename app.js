@@ -41,7 +41,7 @@ class Player{
 
 //   createPlayerAndAliens();
     
-    
+    // let num =6;
 // target the elements
 let start = document.querySelector('.start') 
  
@@ -63,6 +63,8 @@ let alienAccuracySpan = document.getElementById('alien-accuracy-span')
 let cWon = document.getElementById('c-won')
 let aWon=document.getElementById('a-won')
 let retreat =  document.querySelector('.retreat')  
+let wonSound= document.getElementById('won-sound')
+let alSpan = document.querySelector('al-span');
 
 let gameStart;
 let alienNo;
@@ -119,6 +121,7 @@ function calculateAliensAccuracy(){
             //  retreat.classList.remove('dnone')
             aWon.classList.remove('dnone')
             aWon.style.display=block;
+            wonSound.play(); 
             // alert('Alien won!')
              resetGame();
                  }
@@ -159,6 +162,7 @@ function calculateAliensAccuracy(){
     
    }
 
+//    let no=6;
 function isDefeated(){
     if(currentAlien.hull<=0){
         console.log("currentAlien's hull is less than 0,destroy this alien");
@@ -168,19 +172,21 @@ function isDefeated(){
         alienNo+=1
          console.log('new alien number : ',alienNo);
         //  setTimeout(changeColor, 900);
-        fireBtn.style.border="2px solid red"  
+                fireBtn.style.border="2px solid red"  
         if(alienNo<=6){
+            // num=num-1;
             alienNumber.innerHTML=` : ${alienNo}`;
             alienHullSpan.textContent= ` : ${currentAlien.hull}`;
             alienFPSpan.textContent= `: ${currentAlien.firePower}`;
             alienAccuracySpan.textContent= `: ${currentAlien.accuracy}`;
-            
+            // alSpan.textContent = ` : ${num}`; 
         }else{
             console.log('All aliens defeated,Captain Won');
             
             // alert('Captain won!!')
             cWon.classList.remove('dnone')
             cWon.style.display=block;
+            wonSound.play(); 
                      resetGame();
         }    
         }
