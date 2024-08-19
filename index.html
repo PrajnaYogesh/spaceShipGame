@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SpaceShipBattleGame</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="outer-container">
       <div class="top-container">
         <div class="left-container">
           <p class="type">USS Assembly</p>
-          <div class="img-container">
-            <img class="img-style" id="captain-img " src="https://i.giphy.com/gEwrCXUgVijde.gif" alt="captain-img" />
+          <div class="img-container" >
+            <img class="img-style" id="captain-img" src="https://i.giphy.com/gEwrCXUgVijde.gif" alt="captain-img" />
+            <audio id="click-sound" src="/sound/laser-gun-81720.mp3"></audio>
           </div>
           <div class="fire-container">
             <p id="fire" class="fire-btn">Fire</p>
@@ -30,6 +34,8 @@
                 <p class="type">Alien   <span class="alienNo"> </span></p>
                 <div class="img-container ">
                     <img class="img-style" id="alien-img" src="https://tse2.mm.bing.net/th?id=OIP.wDKmYdyYLJ-0XIZ_4k6NtgHaHa&pid=15.1" alt="alien-img" />
+                    <audio id="click-sound-alien" src="/sound/laser-gun-shot-sound-future-sci-fi-lazer-wobble-chakongaudio-174883.mp3"></audio>
+
                   </div>
                   <div class="fire-container">
                     <p class="aliens-left">Aliens Left : <span> </span></p>
@@ -44,10 +50,10 @@
           
         </div>
         <div class="bottom-container">
-            <div class="captain-turn">Captain's Turn</div>
-            <div class="start">Start Game</div>
-            <div class="retreat">Retreat</div>
-            <div class="alien-turn">Alien's Turn</div>
+            <div id="c-won" class="captain-turn btn-styles big-sz dnone"> Captain Won</div>
+            <div class="start btn-styles ">Start Game</div>
+            <div class="retreat btn-styles dnone">Retreat</div>
+            <div id="a-won"  class="alien-turn btn-styles big-sz dnone">Alien Won</div>
             
                   </div>
       </div>

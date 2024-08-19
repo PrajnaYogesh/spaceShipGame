@@ -44,7 +44,7 @@ class Player{
     
 // target the elements
 let start = document.querySelector('.start') 
-let retreat =  document.querySelector('.retreat')   
+ 
 let fireBtn = document.getElementById('fire');
  let currentAlien;
 
@@ -60,7 +60,9 @@ let alienHullSpan = document.getElementById('alien-hull-span')
 let alienFPSpan = document.getElementById('alien-firepower-span')
 let alienAccuracySpan = document.getElementById('alien-accuracy-span')
 
-
+let cWon = document.getElementById('c-won')
+let aWon=document.getElementById('a-won')
+let retreat =  document.querySelector('.retreat')  
 
 let gameStart;
 let alienNo;
@@ -74,14 +76,23 @@ function resetGame(){
     gameStart=false;
         console.log("Game has been reset with empty object");
     captain.reset();
-    alienShip.length=0;;
+    alienShip.length=0;
     alienNumber.textContent=0;
+    fireBtn.style.border="1px solid white" ;
+    retreat.classList.add('dnone')
+    start.classList.remove('dnone')
+    aWon.classList.add('dnone')
+    cWon.classList.add('dnone')
    } else{
     console.log("should go back to prev state");
     
    }
    }
 
+
+   function changeColor(){
+    fireBtn.style.border="2px solid red" 
+}
 
 // calculate the accuracy with which the capatain hits alien and see if alien was hit
 function calculateAliensAccuracy(){
@@ -105,18 +116,32 @@ function calculateAliensAccuracy(){
         if(captain.hull<=0){
             console.log("captain defeated,alien won");
             // display Alien won msg here using html
-            alert('Alien won!')
-                         resetGame();
+            //  retreat.classList.remove('dnone')
+            aWon.classList.remove('dnone')
+            aWon.style.display=block;
+            // alert('Alien won!')
+             resetGame();
                  }
                  else{
                     console.log("continue game,now captain will fire");
-                    
+                    setTimeout(changeColor, 900);
                  }
          
     }
 
+    
 
    function alienFires(){
+    const image = document.getElementById('alien-img');
+    const sound = document.getElementById('click-sound-alien');
+
+    image.classList.add('move-left');
+    sound.play();
+        // Remove the class after animation ends to allow it to be triggered again
+        image.addEventListener('animationend', () => {
+            image.classList.remove('move-left');
+        }, { once: true });
+
     console.log('alien is attacking captain');
     let ans = calculateAliensAccuracy();
     if(ans){
@@ -124,9 +149,12 @@ function calculateAliensAccuracy(){
        captainHullSpan.textContent=` : ${captain.hull}`;
        console.log('captain hull points reduced: ',captain);
     isCaptainDefeated();   
+    // fireBtn.style.border="2px solid red" 
+    setTimeout(changeColor, 900);
     }else{
         console.log('You missed the traget,captain value doesnt change,captain can hit firebutton'); 
-      
+        // fireBtn.style.border="2px solid red" 
+        setTimeout(changeColor, 1000);
     }
     
    }
@@ -139,6 +167,8 @@ function isDefeated(){
         console.log('New alien popped : ',currentAlien)
         alienNo+=1
          console.log('new alien number : ',alienNo);
+        //  setTimeout(changeColor, 900);
+        fireBtn.style.border="2px solid red"  
         if(alienNo<=6){
             alienNumber.innerHTML=` : ${alienNo}`;
             alienHullSpan.textContent= ` : ${currentAlien.hull}`;
@@ -147,12 +177,16 @@ function isDefeated(){
             
         }else{
             console.log('All aliens defeated,Captain Won');
-            alert('Captain won!!')
+            
+            // alert('Captain won!!')
+            cWon.classList.remove('dnone')
+            cWon.style.display=block;
                      resetGame();
         }    
         }
         else{
-        alienFires();
+        // alienFires();
+        setTimeout(alienFires, 2000);
     }
 }
 let random;
@@ -174,6 +208,18 @@ function calculateAccuracy(){
 
 
 function captainFires(){
+const image = document.getElementById('captain-img')
+const sound = document.getElementById('click-sound');
+// Add the animation class
+image.classList.add('move-right');
+sound.play();
+fireBtn.style.border="1px solid white" 
+
+// Remove the class after animation ends to allow it to be triggered again
+image.addEventListener('animationend', () => {
+    image.classList.remove('move-right');
+}, { once: true });
+
   console.log('inside captain function,the captain fires the alien')
   let answer =  calculateAccuracy();
 if(answer){
@@ -181,8 +227,10 @@ if(answer){
     console.log("current Aliens hull reduced",currentAlien.hull);
     alienHullSpan.textContent=` : ${currentAlien.hull}`;
     isDefeated();
+   
 }else{
-    alienFires();
+    // alienFires();
+    setTimeout(alienFires, 2000);
 }
 }
 
@@ -202,7 +250,9 @@ start.addEventListener('click', ()=>{
     createPlayerAndAliens();
    currentAlien = alienShip.shift();
    console.log('first alien popped:',currentAlien);
-   
+   fireBtn.style.border="2px solid red"  
+   start.classList.add('dnone')
+   retreat.classList.remove('dnone')
 //    set intial values:
 captainHullSpan.textContent=` : ${captain.hull}`;
 captainFPSpan.textContent= ` : ${captain.firePower}`;
