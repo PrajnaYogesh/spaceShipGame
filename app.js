@@ -86,7 +86,9 @@ function resetGame(){
 // calculate the accuracy with which the capatain hits alien and see if alien was hit
 function calculateAliensAccuracy(){
     console.log('inside calc accuracy -> alien hits captain');
-    let random = Math.random();
+    // let random = Math.random();
+    // random = Number((Math.random() * (0.8) + 0.1).toFixed(1));
+    // captainAccuracySpan.textContent= ` : ${random}`;
     console.log('captains accuracy:',random);
     console.log("current aliens accuracy is: ",currentAlien.accuracy);
          if (  random < currentAlien.accuracy ){
@@ -145,6 +147,7 @@ function isDefeated(){
             
         }else{
             console.log('All aliens defeated,Captain Won');
+            alert('Captain won!!')
                      resetGame();
         }    
         }
@@ -152,12 +155,13 @@ function isDefeated(){
         alienFires();
     }
 }
-
+let random;
 // calculate the accuracy with which the capatain hits alien and see if alien was hit
 function calculateAccuracy(){
     console.log('inside calc accuracy -> catain hits alien');
-    let random = Math.random();
+     random = Number((Math.random() * (1.0) + 0.1).toFixed(1));
     console.log('captains accuracy:',random);
+    captainAccuracySpan.textContent= ` : ${random}`;
      if (random > currentAlien.accuracy ){
     console.log('captain hit the target,reduce aliens hull points')
     return true;
